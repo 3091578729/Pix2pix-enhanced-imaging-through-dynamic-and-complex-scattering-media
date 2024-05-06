@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="root@lyg.blockelite.cn:12740 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/pycharm_project_213" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="root@lyg.blockelite.cn:15312 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/pycharm_project_760" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="root@lyg.blockelite.cn:21128 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/pycharm_project_653" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
