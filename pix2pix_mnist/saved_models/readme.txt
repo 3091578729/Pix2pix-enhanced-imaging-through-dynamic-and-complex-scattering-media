@@ -1,0 +1,1 @@
+Upload the weight file to Google Cloud, please download and place it in this folder
