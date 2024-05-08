@@ -4,7 +4,7 @@ Python implementation of paper:Pix2pix-enhanced imaging through dynamic and comp
 
 We provide model, pre-trained weights, test data and a quick demo.
 
-1.The prepared dataset was uploaded to Google Cloud Drive.
+1.The prepared dataset was uploaded to Google Cloud Drive.(Each group of five consecutive images represents a speckle pattern at a particle concentration)
   https://drive.google.com/file/d/1LDup4JZ_vLMhmTCuaa8bv7Byur9hZ09H/view?usp=drive_link
   
 2.Upload the trained weights to Google Cloud
