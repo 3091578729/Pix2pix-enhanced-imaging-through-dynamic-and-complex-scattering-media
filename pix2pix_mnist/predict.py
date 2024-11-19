@@ -16,15 +16,16 @@ transforms_ = [
 ]
 transform = transforms.Compose(transforms_)
 parser = argparse.ArgumentParser()
-parser.add_argument("--checkpoint", type=str, default='./saved_models/mnist/generator_Uet_100.pth', help="inference model checkpoint")
+parser.add_argument("--checkpoint", type=str, default='./saved_models/mnist/generator_ResUnet_80.pth', help="inference model checkpoint")
 parser.add_argument("--input", type=str, default='./mnist/test/0_4.jpg', help="image for predict")
-parser.add_argument("--output", type=str, default="./results/0_4_out.jpg", help="predict result")
+parser.add_argument("--output", type=str, default="./results/0_4.jpg", help="predict result")
 opt = parser.parse_args()
 
 # load checkpoint
 cuda = True if torch.cuda.is_available() else False
 Tensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
-generator = GeneratorUNet()
+#generator = GeneratorUNet()
+generator = GeneratorResUNet()
 if cuda:
     generator = generator.cuda()
 generator.load_state_dict(torch.load(opt.checkpoint))
@@ -40,7 +41,11 @@ for image_name in glob.glob('./mnist/test/*.jpg'):
     img = transform(img)
     img = Variable(img.type(Tensor).unsqueeze(0))
 
-    result = generator(img).squeeze(0).permute(1,2,0).detach().cpu().numpy() * 255
+   # result = generator(img).squeeze(0).permute(1,2,0).detach().cpu().numpy() * 255
+    result = (generator(img).squeeze(0).permute(1, 2, 0).detach().cpu().numpy() * 0.5 + 0.5) * 255
+
+    print(np.max(result))
+    print(np.min(result))
     result = np.clip(result,0,255)
     result_name = './results/' + image_name.split('\\')[-1]
     cv2.imwrite(result_name,result.astype(np.uint8))
